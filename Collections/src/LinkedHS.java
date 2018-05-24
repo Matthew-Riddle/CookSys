@@ -1,4 +1,4 @@
-import java.util.Iterator;
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
 
 
@@ -8,14 +8,15 @@ public class LinkedHS {
 	
 	LinkedHashSet<Book> books = new LinkedHashSet<Book>();
 	
+	ArrayList<Book> hBooks = new ArrayList<Book>();
+	
 	Book b1 = new Book(1, "Harry Potter", "JK lol", "MemeHouse inc", 42);
 	Book b2 = new Book(2, "Catcher in my Pie", "Betty Crocker", "Flavor of the month", 1000);
 	Book b3 = new Book(3, "Spiderman and Deadpool: A love story", "le'Cameo", "Edgar allen Bro", 1337);
 	Book b4 = new Book(4, "Hub as a last name", "Gitty The Kitty", "GitPub(lisher)", 1);
+	Book b5 = new Book(5, "H...This starts with H", "H-Man", "H-Pages", 10);
 	
-	public void greeting() {
-		System.out.println("Hello sir, what was your coat check number?");
-	}
+
 	
 	public void print() {
 		System.out.println("");
@@ -32,6 +33,11 @@ public class LinkedHS {
 		books.add(b1);
 		books.add(b2);
 		books.add(b3);
+		
+		//Add books that has a title that begins with "H"
+		hBooks.add(b1);
+		hBooks.add(b4);
+		hBooks.add(b5);
 		
 		//Display the books
 		for (Book book : books) {
@@ -59,6 +65,15 @@ public class LinkedHS {
 		
 		books.add(b4);
 		books.add(b2);
+		
+		print();
+		
+		/*Just for fun, we will use the retainAll method to compare the collection hBooks to or linked HashSet
+		 * It will see what the 2 collections have in common and delete the rest.
+		 * Notice that Even though we had book 5 in the hBooks collection, it had no effect
+		 * on our LinkedHashset*/
+		
+		books.retainAll(hBooks);
 		
 		print();
 		
